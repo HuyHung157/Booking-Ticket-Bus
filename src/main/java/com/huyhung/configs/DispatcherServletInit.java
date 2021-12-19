@@ -24,14 +24,14 @@ public class DispatcherServletInit
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{
+        return new Class[] {
             WebApplicationContextConfig.class
         };
     }
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/"};
+        return new String[] {"/"};
     }
 
 }
