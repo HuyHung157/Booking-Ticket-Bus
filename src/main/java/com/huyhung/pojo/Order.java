@@ -36,13 +36,13 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "order")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Order.findAll", query = "SELECT o FROM Order1 o"),
-    @NamedQuery(name = "Order.findById", query = "SELECT o FROM Order1 o WHERE o.id = :id"),
-    @NamedQuery(name = "Order.findByAmount", query = "SELECT o FROM Order1 o WHERE o.amount = :amount"),
-    @NamedQuery(name = "Order.findByCreateDate", query = "SELECT o FROM Order1 o WHERE o.createDate = :createDate"),
-    @NamedQuery(name = "Order.findByDesciprion", query = "SELECT o FROM Order1 o WHERE o.desciprion = :desciprion"),
-    @NamedQuery(name = "Order.findByIsActive", query = "SELECT o FROM Order1 o WHERE o.isActive = :isActive"),
-    @NamedQuery(name = "Order.findByIsArchive", query = "SELECT o FROM Order1 o WHERE o.isArchive = :isArchive")})
+    @NamedQuery(name = "Order.findAll", query = "SELECT o FROM Order o"),
+    @NamedQuery(name = "Order.findById", query = "SELECT o FROM Order o WHERE o.id = :id"),
+    @NamedQuery(name = "Order.findByAmount", query = "SELECT o FROM Order o WHERE o.amount = :amount"),
+    @NamedQuery(name = "Order.findByCreateDate", query = "SELECT o FROM  o WHERE o.createDate = :createDate"),
+    @NamedQuery(name = "Order.findByDesciprion", query = "SELECT o FROM Order o WHERE o.desciprion = :desciprion"),
+    @NamedQuery(name = "Order.findByIsActive", query = "SELECT o FROM Order o WHERE o.isActive = :isActive"),
+    @NamedQuery(name = "Order.findByIsArchive", query = "SELECT o FROM Order o WHERE o.isArchive = :isArchive")})
 public class Order implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -69,7 +69,7 @@ public class Order implements Serializable {
     @NotNull
     @Column(name = "is_archive")
     private boolean isArchive;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order1")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
     private Set<OrderDetail> orderDetailSet;
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
@@ -176,7 +176,7 @@ public class Order implements Serializable {
 
     @Override
     public String toString() {
-        return "com.huyhung.pojo.Order1[ id=" + id + " ]";
+        return "com.huyhung.pojo.Order[ id=" + id + " ]";
     }
     
 }
