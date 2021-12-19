@@ -5,15 +5,17 @@
  */
 package com.huyhung.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  *
  * @author TIM
  */
+@Controller
 public class AdminController {
 
-    @RequestMapping("/admin")
+    @GetMapping("/admin")
     public String index() {
         return "admin";
     }
