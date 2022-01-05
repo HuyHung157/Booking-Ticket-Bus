@@ -47,7 +47,7 @@
                         Tài khoản
                     </a>
                     <ul class="collapse list-unstyled" id="accountSubmenu">
-                        <li><a href=""><i class="fa fa-user"></i>Cư dân</a></li>
+                        <li><a href=""><i class="fa fa-user"></i>Khách hàng</a></li>
                         <li><a href=""><i class="fa fa-user-cog"></i>Nhân viên</a></li>
                     </ul>
                 </li>

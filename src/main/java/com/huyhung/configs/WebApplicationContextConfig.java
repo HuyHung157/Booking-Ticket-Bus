@@ -26,6 +26,8 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableTransactionManagement
 @ComponentScan(basePackages = {
     "com.huyhung.controllers",
+    "com.huyhung.repository",
+    "com.huyhung.service",
 })
 public class WebApplicationContextConfig implements WebMvcConfigurer {
     

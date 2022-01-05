@@ -20,13 +20,30 @@ and open the template in the editor.
         <put-attribute name="contentAdmin" value="" />
         <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
     </definition>
+
+    <!--auth-->
+    <definition name="sign-in" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Đăng nhập" />
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/auth/sign-in.jsp" />
+    </definition>
     
+    <!--home-->
     <definition name="index" extends="baseLayout">
         <put-attribute name="title" value="Trang chủ" />
-        <put-attribute name="content"  value="/WEB-INF/pages/index.jsp" />
+        <put-attribute name="content" value="/WEB-INF/pages/index.jsp" />
     </definition>
+    
+    <!--admin-->
     <definition name="admin" extends="baseLayoutAdmin">
         <put-attribute name="title" value="Admin" />
         <put-attribute name="contentAdmin"  value="/WEB-INF/pages/admin.jsp" />
+    </definition>
+    <definition name="user-list" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Quản lý tài khoản" />
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/user/user-list.jsp" />
+    </definition>
+    <definition name="user-form" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Quản lý tài khoản" />
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/user/user-form.jsp" />
     </definition>
 </tiles-definitions>
