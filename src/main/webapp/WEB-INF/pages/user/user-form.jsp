@@ -22,25 +22,37 @@
     <div class="form-row">
         <div class="form-group w-50">
             <label for="name">Họ</label>
-            <form:input path="firstName" class="form-control" id="name" />
+            <form:input path="firstName" class="form-control" id="firstName" />
             <form:errors path="firstName" element="div" cssClass="text-danger" />
         </div>
         <div class="form-group w-50">
             <label for="name">Tên</label>
-            <form:input path="lastName" class="form-control" id="name" />
+            <form:input path="lastName" class="form-control" id="lastName" />
             <form:errors path="lastName" element="div" cssClass="text-danger" />
         </div>
     </div>
     <div class="form-row">
         <div class="form-group w-50">
             <label for="name">Tên đăng nhập</label>
-            <form:input path="username" class="form-control" id="name" />
+            <form:input path="username" class="form-control" id="username" />
             <form:errors path="username" element="div" cssClass="text-danger" />
         </div>
         <div class="form-group w-50">
+            <label for="name">Email</label>
+            <form:input path="email" class="form-control" id="email" />
+            <form:errors path="email" element="div" cssClass="text-danger" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group w-50">
             <label for="name">Mật khẩu</label>
-            <form:input path="password" class="form-control" id="name" />
+            <form:password path="password" class="form-control" id="password" />
             <form:errors path="password" element="div" cssClass="text-danger" />
+        </div>
+        <div class="form-group w-50">
+            <label>Xác nhận mật khẩu</label>
+            <form:password path="confirmPassword" class="form-control" id="confirmPassword" />
+            <form:errors path="confirmPassword" element="div" cssClass="text-danger" />
         </div>
     </div>
     <div class="form-row">
@@ -51,29 +63,27 @@
         </div>
         <div class="form-group w-50">
             <label for="name">Địa chỉ</label>
-            <form:input path="address" class="form-control" id="name" />
+            <form:input path="address" class="form-control" id="address" />
             <form:errors path="address" element="div" cssClass="text-danger" />
         </div>
     </div>
     <div class="form-row">
         <div class="form-group w-50">
-            <label for="name">Email</label>
-            <form:input path="email" class="form-control" id="name" />
-            <form:errors path="email" element="div" cssClass="text-danger" />
-        </div>
-
-        <div class="form-group w-50">
-            <label for="name">Loại tài khoản</label>
-            <form:select path="userRole" class="form-control">
+            <label for="userRole">Loại tài khoản</label>
+            <form:select path="userRole" class="form-control" id="userRole">
                 <c:forEach items="${roleList}" var="r" varStatus="loop">
                     <form:option value="${r.getKey()}">${r.getValue()}</form:option> 
                 </c:forEach>
             </form:select>
         </div>
+        <div class="form-group w-50">
+            <label for="avatar">Avatar</label>
+            <form:input type="file" id="avatar" path="file" class="form-control" />
+        </div>
     </div>
     <div class="form-group">
-        <label for="name">Ghi chú</label>
-        <form:textarea path="description" class="form-control" id="name" />
+        <label for="description">Ghi chú</label>
+        <form:textarea path="description" class="form-control" id="description" />
         <form:errors path="description" element="div" cssClass="text-danger" />
     </div>
 

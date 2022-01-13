@@ -19,6 +19,7 @@ public class DispatcherServletInit
         return new Class[]{
             HibernateConfig.class,
             TilesConfig.class,
+            SpringSecurityConfig.class
         };
     }
 

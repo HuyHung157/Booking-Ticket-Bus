@@ -7,14 +7,14 @@ package com.huyhung.service;
 
 import com.huyhung.pojo.User;
 import java.util.Map;
-import org.springframework.stereotype.Service;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  *
  * @author TIM
  */
-public interface UserService {
-    User getUserByUserName(String username);
-    Map<String, String> getRoleList();
+public interface UserService extends UserDetailsService {
+    User getUserByUsername(String username);
     boolean createUser(User user);
+    Map<String, String> getRoleList();
 }

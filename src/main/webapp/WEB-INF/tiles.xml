@@ -17,14 +17,15 @@ and open the template in the editor.
     </definition>
     <definition name="baseLayoutAdmin" template="/WEB-INF/layout/baseAdmin.jsp">
         <put-attribute name="title" value="" />
+        <put-attribute name="headerAdmin" value="/WEB-INF/layout/headerAdmin.jsp" />
         <put-attribute name="contentAdmin" value="" />
         <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
     </definition>
 
     <!--auth-->
-    <definition name="sign-in" extends="baseLayoutAdmin">
+    <definition name="login" extends="baseLayout">
         <put-attribute name="title" value="Đăng nhập" />
-        <put-attribute name="contentAdmin" value="/WEB-INF/pages/auth/sign-in.jsp" />
+        <put-attribute name="content" value="/WEB-INF/pages/auth/login.jsp" />
     </definition>
     
     <!--home-->
@@ -38,12 +39,22 @@ and open the template in the editor.
         <put-attribute name="title" value="Admin" />
         <put-attribute name="contentAdmin"  value="/WEB-INF/pages/admin.jsp" />
     </definition>
+    <!--User-->
     <definition name="user-list" extends="baseLayoutAdmin">
-        <put-attribute name="title" value="Quản lý tài khoản" />
+        <put-attribute name="title" value="Danh sách khách hàng" />
         <put-attribute name="contentAdmin" value="/WEB-INF/pages/user/user-list.jsp" />
     </definition>
     <definition name="user-form" extends="baseLayoutAdmin">
-        <put-attribute name="title" value="Quản lý tài khoản" />
+        <put-attribute name="title" value="Tài khoản khách hàng"/>
         <put-attribute name="contentAdmin" value="/WEB-INF/pages/user/user-form.jsp" />
     </definition>
+    <definition name="employee-list" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Danh sách nhân viên" />
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/user/user-list.jsp" />
+    </definition>
+    <definition name="employee-form" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Tài khoản nhân viên"/>
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/user/user-form.jsp" />
+    </definition>
+    
 </tiles-definitions>

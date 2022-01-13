@@ -10,6 +10,7 @@ import com.huyhung.service.UserService;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,13 +23,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author TIM
  */
 @Controller
+@Transactional
 public class UserController {
     @Autowired
-    private UserService userService;
+    private UserService userDetailsService;
     
-    @RequestMapping("/sign-in")
+    @RequestMapping("/login")
     public String index() {
-        return "sign-in";
+        return "login";
     }
     
     @RequestMapping("/admin/user")
@@ -36,11 +38,21 @@ public class UserController {
         return "user-list";
     }
     
+    @RequestMapping("/admin/employee")
+    public String employeeList() {
+        return "employee-list";
+    }
+    
+    @RequestMapping("/admin/employee/create")
+    public String employeeCreate() {
+        return "employee-form";
+    }
+    
     @GetMapping("/admin/user/create")
     public String createUser(Model model) {
         model.addAttribute("user", new User());
-        System.out.println(this.userService.getRoleList());
-        model.addAttribute("roleList", this.userService.getRoleList());
+        System.out.println(this.userDetailsService.getRoleList());
+        model.addAttribute("roleList", this.userDetailsService.getRoleList());
         return "user-form";
     }
     
@@ -48,12 +60,17 @@ public class UserController {
     public String createUser(Model model,
             @ModelAttribute("user") @Valid User user,
             BindingResult result) {
-        if (result.hasErrors())
-            return "user-form";
-          
+        String errMsg = "";
+        if (user.getPassword().equals(user.getConfirmPassword())) {
+            if (this.userDetailsService.createUser(user))
+                return "redirect:/admin/user/";
+            else
+                errMsg = "He thong dang co loi! Vui long quay lai sau!";
+        } else
+            errMsg = "Mat khau KHONG khop!";
         
-        if (this.userService.createUser(user) == true)
-            return "redirect:/admin/user";
+        
+        model.addAttribute("errMsg", errMsg);
         
         return "user-form";
     }

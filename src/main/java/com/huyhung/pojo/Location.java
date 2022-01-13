@@ -35,6 +35,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Location.findById", query = "SELECT l FROM Location l WHERE l.id = :id"),
     @NamedQuery(name = "Location.findByLocationName", query = "SELECT l FROM Location l WHERE l.locationName = :locationName"),
     @NamedQuery(name = "Location.findByLocationKey", query = "SELECT l FROM Location l WHERE l.locationKey = :locationKey"),
+    @NamedQuery(name = "Location.findByImgUrl", query = "SELECT l FROM Location l WHERE l.imgUrl = :imgUrl"),
     @NamedQuery(name = "Location.findByDescription", query = "SELECT l FROM Location l WHERE l.description = :description"),
     @NamedQuery(name = "Location.findByIsActive", query = "SELECT l FROM Location l WHERE l.isActive = :isActive"),
     @NamedQuery(name = "Location.findByIsArchive", query = "SELECT l FROM Location l WHERE l.isArchive = :isArchive")})
@@ -54,6 +55,9 @@ public class Location implements Serializable {
     @Size(max = 45)
     @Column(name = "location_key")
     private String locationKey;
+    @Size(max = 100)
+    @Column(name = "imgUrl")
+    private String imgUrl;
     @Size(max = 100)
     @Column(name = "description")
     private String description;
@@ -106,6 +110,14 @@ public class Location implements Serializable {
 
     public void setLocationKey(String locationKey) {
         this.locationKey = locationKey;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public String getDescription() {

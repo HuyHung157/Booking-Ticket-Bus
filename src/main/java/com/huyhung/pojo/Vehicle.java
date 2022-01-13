@@ -39,6 +39,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Vehicle.findByTotalSeatUpper", query = "SELECT v FROM Vehicle v WHERE v.totalSeatUpper = :totalSeatUpper"),
     @NamedQuery(name = "Vehicle.findByTotalSeatLower", query = "SELECT v FROM Vehicle v WHERE v.totalSeatLower = :totalSeatLower"),
     @NamedQuery(name = "Vehicle.findByStatus", query = "SELECT v FROM Vehicle v WHERE v.status = :status"),
+    @NamedQuery(name = "Vehicle.findByImgUrl", query = "SELECT v FROM Vehicle v WHERE v.imgUrl = :imgUrl"),
     @NamedQuery(name = "Vehicle.findByDescription", query = "SELECT v FROM Vehicle v WHERE v.description = :description"),
     @NamedQuery(name = "Vehicle.findByIsActive", query = "SELECT v FROM Vehicle v WHERE v.isActive = :isActive"),
     @NamedQuery(name = "Vehicle.findByIsArchive", query = "SELECT v FROM Vehicle v WHERE v.isArchive = :isArchive")})
@@ -77,6 +78,9 @@ public class Vehicle implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "status")
     private String status;
+    @Size(max = 100)
+    @Column(name = "imgUrl")
+    private String imgUrl;
     @Size(max = 100)
     @Column(name = "description")
     private String description;
@@ -164,6 +168,14 @@ public class Vehicle implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public String getDescription() {

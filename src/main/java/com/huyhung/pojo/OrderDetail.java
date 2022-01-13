@@ -63,9 +63,7 @@ public class OrderDetail implements Serializable {
     @NotNull
     @Column(name = "is_archive")
     private boolean isArchive;
-    @JoinColumns({
-        @JoinColumn(name = "order_ticket_id", referencedColumnName = "id"),
-    })
+    @JoinColumn(name = "order_ticket_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private OrderTicket orderTicket;
     @JoinColumn(name = "trip_detail_id", referencedColumnName = "id")

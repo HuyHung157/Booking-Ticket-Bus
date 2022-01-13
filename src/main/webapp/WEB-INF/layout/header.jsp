@@ -25,8 +25,31 @@
 
             <c:if test="${pageContext.request.userPrincipal.name == null}">
                 <li class="nav-item">
-                    <a class="nav-link text-success" href="<c:url value="/login" />">
-                        Login
+                    <a href="<c:url value="/login" />" class="nav-link text-danger">
+                        <i class="fa fa-user" aria-hidden="true"></i> Đăng nhập
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<c:url value="/register" />" class="nav-link text-danger">
+                        <i class="fa fa-check" aria-hidden="true"></i> Đăng ký
+                    </a>
+                </li>
+            </c:if>
+            <c:if test="${pageContext.request.userPrincipal.name != null}">
+                <li class="nav-item">
+                    <a href="<c:url value="/" />" class="nav-link text-success">
+                        <c:if test="${currentUser.imgUrl != null}">
+                            <img style="width:30px;" src="${currentUser.imgUrl}" class="rounded-circle" />
+                        </c:if>
+                        <c:if test="${currentUser.imgUrl == null}">
+                            <i class="fa fa-user"></i>
+                        </c:if>
+                        Chào, ${currentUser.lastName} ${currentUser.firstName}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<c:url value="/logout" />" class="nav-link text-success">
+                        Đăng xuất
                     </a>
                 </li>
             </c:if>

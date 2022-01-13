@@ -40,28 +40,29 @@
                 <li>
                     <a href=""> <i class="fa fa-home"></i> Home </a>
                 </li>                
-
+                <li> <a href="<c:url value="/admin/trip" />"> <i class="fa fa-bacon"></i> Chuyến đi </a> </li>
+                <li> <a href="<c:url value="/admin/order" />"> <i class="fa fa-clipboard-list"></i> Đơn hàng </a> </li>
                 <li>
                     <a href="#accountSubmenu" data-toggle="collapse" aria-expanded="false">
                         <i class="fa fa-file"></i>
                         Tài khoản
                     </a>
                     <ul class="collapse list-unstyled" id="accountSubmenu">
-                        <li><a href=""><i class="fa fa-user"></i>Khách hàng</a></li>
-                        <li><a href=""><i class="fa fa-user-cog"></i>Nhân viên</a></li>
+                        <li><a href="<c:url value="/admin/emloyee" />"><i class="fa fa-user"></i>Khách hàng</a></li>
+                        <li><a href="<c:url value="/admin/user" />"><i class="fa fa-user-cog"></i>Nhân viên</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#serviceSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <i class="fa fa-hand-holding-heart"></i>
-                        Dịch vụ
+                        <i class="fas fa-cog"></i>
+                        Cài đặt
                     </a>
                     <ul class="collapse list-unstyled" id="serviceSubmenu">
-                        <li><a href="")"><i class="fa fa-clipboard-list"></i>Hóa đơn</a></li>
-                        <li><a href=""><i class="fa fa-list-ul"></i>Loại dịch vụ</a></li>
+                        <li><a href="<c:url value="/admin/vehicle" />"><i class="fa fa-shuttle-van"></i>Phương tiện</a></li>
+                        <li><a href="<c:url value="/admin/location" />"><i class="fa fa-map-marker-alt"></i>Địa điểm</a></li>
                     </ul>
                 </li>
-                <li> <a href="#"> <i class="fas fa-cog"></i>  Cài đặt </a> </li>
+                <li> <a href="<c:url value="/admin/self/information" />"> <i class="fa fa-user-edit"></i> Thông tin </a> </li>
             </ul>
         </nav>
 
@@ -73,7 +74,7 @@
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <div class="container-fluid">
 
-                            Đăng Nhập
+                            <tiles:insertAttribute name="headerAdmin" />
 
                         </div>
                     </nav>

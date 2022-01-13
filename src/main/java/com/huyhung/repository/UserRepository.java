@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package com.huyhung.repository;
-
 import com.huyhung.pojo.User;
-import java.util.List;
 
 /**
  *
