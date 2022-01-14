@@ -6,7 +6,30 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<h1 class="text-center"> Tạo tài khoản người dùng </h1>
+
+<div class="header-list d-flex align-items-center">
+    <c:if test="${mode=='User' or mode==null}">
+        <a class="btn btn-danger" href="<c:url value="/admin/user/" />">
+            Back
+        </a>
+    </c:if>
+
+    <c:if test="${mode=='Employee'}">
+        <a class="btn btn-danger" href="<c:url value="/admin/employee/" />">
+            Back
+        </a>
+    </c:if>
+    <h1 class="text-center m-0auto"> 
+    <span>Tạo tài khoản</span>
+    <c:if test="${mode=='User' or mode==null}">
+        <span>khách hàng</span>
+    </c:if>
+    <c:if test="${mode=='Employee'}">
+        <span>nhân viên</span>
+    </c:if>
+</h1>
+</div>
+
 
 <c:if test="${errMsg != null}">
     <div class="alert alert-danger">

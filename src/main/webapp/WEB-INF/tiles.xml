@@ -22,24 +22,24 @@ and open the template in the editor.
         <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
     </definition>
 
-    <!--auth-->
+    <!-- auth -->
     <definition name="login" extends="baseLayout">
         <put-attribute name="title" value="Đăng nhập" />
         <put-attribute name="content" value="/WEB-INF/pages/auth/login.jsp" />
     </definition>
     
-    <!--home-->
+    <!-- home -->
     <definition name="index" extends="baseLayout">
         <put-attribute name="title" value="Trang chủ" />
         <put-attribute name="content" value="/WEB-INF/pages/index.jsp" />
     </definition>
     
-    <!--admin-->
+    <!-- admin -->
     <definition name="admin" extends="baseLayoutAdmin">
         <put-attribute name="title" value="Admin" />
         <put-attribute name="contentAdmin"  value="/WEB-INF/pages/admin.jsp" />
     </definition>
-    <!--User-->
+    <!-- User -->
     <definition name="user-list" extends="baseLayoutAdmin">
         <put-attribute name="title" value="Danh sách khách hàng" />
         <put-attribute name="contentAdmin" value="/WEB-INF/pages/user/user-list.jsp" />
@@ -55,6 +55,46 @@ and open the template in the editor.
     <definition name="employee-form" extends="baseLayoutAdmin">
         <put-attribute name="title" value="Tài khoản nhân viên"/>
         <put-attribute name="contentAdmin" value="/WEB-INF/pages/user/user-form.jsp" />
+    </definition>
+    <definition name="profile" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Thông tin cá nhân"/>
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/user/user-profile.jsp" />
+    </definition>
+    <!-- Trip -->
+    <definition name="trip-list" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Danh sách chuyến đi" />
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/trip/trip-list.jsp" />
+    </definition>
+    <definition name="trip-form" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Tạo chuyến đi"/>
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/trip/trip-form.jsp" />
+    </definition>
+    <!-- Order -->
+    <definition name="order-list" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Danh sách đơn hàng" />
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/order/order-list.jsp" />
+    </definition>
+    <definition name="order-form" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Tạo đơn hàng"/>
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/order/order-form.jsp" />
+    </definition>
+    <!-- Vehicle -->
+    <definition name="vehicle-list" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Danh sách phương tiện" />
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/vehicle/vehicle-list.jsp" />
+    </definition>
+    <definition name="vehicle-form" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Tạo phương tiện"/>
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/vehicle/vehicle-form.jsp" />
+    </definition>
+    <!-- Location -->
+    <definition name="location-list" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Danh sách địa điểm" />
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/location/location-list.jsp" />
+    </definition>
+    <definition name="location-form" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Tạo địa điểm"/>
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/location/location-form.jsp" />
     </definition>
     
 </tiles-definitions>
