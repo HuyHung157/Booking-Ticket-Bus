@@ -39,8 +39,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "OrderTicket.findAll", query = "SELECT o FROM OrderTicket o"),
     @NamedQuery(name = "OrderTicket.findById", query = "SELECT o FROM OrderTicket o WHERE o.id = :id"),
     @NamedQuery(name = "OrderTicket.findByAmount", query = "SELECT o FROM OrderTicket o WHERE o.amount = :amount"),
-    @NamedQuery(name = "OrderTicket.findByCreateDate", query = "SELECT o FROM OrderTicket o WHERE o.createDate = :createDate"),
-    @NamedQuery(name = "OrderTicket.findByDesciprion", query = "SELECT o FROM OrderTicket o WHERE o.desciprion = :desciprion"),
+    @NamedQuery(name = "OrderTicket.findByCreatedDate", query = "SELECT o FROM OrderTicket o WHERE o.createdDate = :createdDate"),
+    @NamedQuery(name = "OrderTicket.findByDescription", query = "SELECT o FROM OrderTicket o WHERE o.description = :description"),
     @NamedQuery(name = "OrderTicket.findByIsActive", query = "SELECT o FROM OrderTicket o WHERE o.isActive = :isActive"),
     @NamedQuery(name = "OrderTicket.findByIsArchive", query = "SELECT o FROM OrderTicket o WHERE o.isArchive = :isArchive")})
 public class OrderTicket implements Serializable {
