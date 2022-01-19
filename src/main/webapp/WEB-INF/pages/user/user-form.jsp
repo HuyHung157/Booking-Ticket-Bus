@@ -100,7 +100,7 @@
             </form:select>
         </div>
         <div class="form-group w-50">
-            <label for="avatar">Avatar</label>
+            <label for="avatar">Ảnh đại diện</label>
             <form:input type="file" id="avatar" path="file" class="form-control" />
         </div>
     </div>

@@ -75,6 +75,11 @@ public class OrderTicket implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderTicket")
     private Set<OrderDetail> orderDetailSet;
 
+    {
+        isActive = true;
+        isArchive = false;
+    }
+
     public OrderTicket() {
     }
 
@@ -178,5 +183,5 @@ public class OrderTicket implements Serializable {
     public String toString() {
         return "com.huyhung.pojo.OrderTicket[ id=" + id + " ]";
     }
-    
+
 }

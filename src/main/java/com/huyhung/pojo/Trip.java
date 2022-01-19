@@ -66,6 +66,11 @@ public class Trip implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tripId")
     private Set<TripDetail> tripDetailSet;
 
+    {
+        isActive = true;
+        isArchive = false;
+    }
+
     public Trip() {
     }
 
@@ -160,5 +165,5 @@ public class Trip implements Serializable {
     public String toString() {
         return "com.huyhung.pojo.Trip[ id=" + id + " ]";
     }
-    
+
 }

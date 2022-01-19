@@ -84,6 +84,11 @@ public class TripDetail implements Serializable {
     @ManyToOne(optional = false)
     private Vehicle vehicleId;
 
+    {
+        isActive = true;
+        isArchive = false;
+    }
+
     public TripDetail() {
     }
 
@@ -204,5 +209,5 @@ public class TripDetail implements Serializable {
     public String toString() {
         return "com.huyhung.pojo.TripDetail[ id=" + id + " ]";
     }
-    
+
 }

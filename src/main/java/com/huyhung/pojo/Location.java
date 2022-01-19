@@ -18,10 +18,12 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -40,6 +42,20 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Location.findByIsActive", query = "SELECT l FROM Location l WHERE l.isActive = :isActive"),
     @NamedQuery(name = "Location.findByIsArchive", query = "SELECT l FROM Location l WHERE l.isArchive = :isArchive")})
 public class Location implements Serializable {
+
+    /**
+     * @return the file
+     */
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -73,6 +89,13 @@ public class Location implements Serializable {
     private Set<Trip> tripSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "endPoint")
     private Set<Trip> tripSet1;
+    @Transient
+    private MultipartFile file;
+    
+    {
+        isActive = true;
+        isArchive = false;
+    }
 
     public Location() {
     }
@@ -186,5 +209,5 @@ public class Location implements Serializable {
     public String toString() {
         return "com.huyhung.pojo.Location[ id=" + id + " ]";
     }
-    
+
 }

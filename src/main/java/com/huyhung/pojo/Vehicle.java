@@ -18,10 +18,12 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -45,12 +47,32 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Vehicle.findByIsArchive", query = "SELECT v FROM Vehicle v WHERE v.isArchive = :isArchive")})
 public class Vehicle implements Serializable {
 
+    /**
+     * @return the file
+     */
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Size(max = 45)
+    @Column(name = "vehicle_name")
+    private String vehicleName;
+    @Size(max = 45)
+    @Column(name = "vehicle_branch")
+    private String vehicleBranch;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -94,6 +116,12 @@ public class Vehicle implements Serializable {
     private boolean isArchive;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vehicleId")
     private Set<TripDetail> tripDetailSet;
+    @Transient
+    private MultipartFile file;
+    {
+        isActive = true;
+        isArchive = false;
+    }
 
     public Vehicle() {
     }
@@ -235,5 +263,21 @@ public class Vehicle implements Serializable {
     public String toString() {
         return "com.huyhung.pojo.Vehicle[ id=" + id + " ]";
     }
-    
+
+    public String getVehicleName() {
+        return vehicleName;
+    }
+
+    public void setVehicleName(String vehicleName) {
+        this.vehicleName = vehicleName;
+    }
+
+    public String getVehicleBranch() {
+        return vehicleBranch;
+    }
+
+    public void setVehicleBranch(String vehicleBranch) {
+        this.vehicleBranch = vehicleBranch;
+    }
+
 }

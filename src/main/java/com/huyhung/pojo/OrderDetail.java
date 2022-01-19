@@ -70,6 +70,11 @@ public class OrderDetail implements Serializable {
     @ManyToOne(optional = false)
     private TripDetail tripDetailId;
 
+    {
+        isActive = true;
+        isArchive = false;
+    }
+
     public OrderDetail() {
     }
 
@@ -172,5 +177,5 @@ public class OrderDetail implements Serializable {
     public String toString() {
         return "com.huyhung.pojo.OrderDetail[ id=" + id + " ]";
     }
-    
+
 }

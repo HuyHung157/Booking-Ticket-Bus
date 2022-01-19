@@ -7,6 +7,10 @@ package com.huyhung.repository.implement;
 
 import com.huyhung.pojo.Vehicle;
 import com.huyhung.repository.VehicleRepository;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,11 +20,22 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class VehicleRepositoryImplement implements VehicleRepository{
+public class VehicleRepositoryImplement implements VehicleRepository {
+
+    @Autowired
+    private LocalSessionFactoryBean sessionFactory;
 
     @Override
     public boolean createVehicle(Vehicle vehicle) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            session.save(vehicle);
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        }
+
+        return false;
     }
-    
+
 }

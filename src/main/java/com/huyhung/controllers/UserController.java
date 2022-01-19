@@ -5,8 +5,14 @@
  */
 package com.huyhung.controllers;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.huyhung.pojo.User;
 import com.huyhung.service.UserService;
+import java.io.IOException;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,6 +59,10 @@ public class UserController {
             @ModelAttribute("user") @Valid User user,
             BindingResult result) {
         String errMsg = "";
+        if (result.hasErrors()) {
+            return "user-form";
+        }
+
         if (user.getPassword().equals(user.getConfirmPassword())) {
             if (this.userDetailsService.createUser(user)) {
                 return "redirect:/admin/user/";
