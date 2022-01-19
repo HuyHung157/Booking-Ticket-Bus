@@ -53,14 +53,12 @@ public class OrderTicket implements Serializable {
     private Integer id;
     @Column(name = "amount")
     private Long amount;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "create_date")
+    @Column(name = "created_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createDate;
+    private Date createdDate;
     @Size(max = 100)
-    @Column(name = "desciprion")
-    private String desciprion;
+    @Column(name = "description")
+    private String description;
     @Basic(optional = false)
     @NotNull
     @Column(name = "is_active")
@@ -87,9 +85,9 @@ public class OrderTicket implements Serializable {
         this.id = id;
     }
 
-    public OrderTicket(Integer id, Date createDate, boolean isActive, boolean isArchive) {
+    public OrderTicket(Integer id, Date createdDate, boolean isActive, boolean isArchive) {
         this.id = id;
-        this.createDate = createDate;
+        this.createdDate = createdDate;
         this.isActive = isActive;
         this.isArchive = isArchive;
     }
@@ -108,22 +106,6 @@ public class OrderTicket implements Serializable {
 
     public void setAmount(Long amount) {
         this.amount = amount;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public String getDesciprion() {
-        return desciprion;
-    }
-
-    public void setDesciprion(String desciprion) {
-        this.desciprion = desciprion;
     }
 
     public boolean getIsActive() {
@@ -182,6 +164,22 @@ public class OrderTicket implements Serializable {
     @Override
     public String toString() {
         return "com.huyhung.pojo.OrderTicket[ id=" + id + " ]";
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 }
