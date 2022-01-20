@@ -9,7 +9,7 @@
 
 <c:if test="${pageContext.request.userPrincipal.name != null}">
     <div>
-        <a href="<c:url value="/" />" class="nav-link text-success">
+        <a href="<c:url value="/" />" class="nav-link">
             <c:if test="${currentUser.imgUrl != null}">
                 <img style="width:30px;" src="${currentUser.imgUrl}" class="rounded-circle" />
             </c:if>
@@ -20,7 +20,7 @@
         </a>
     </div>
     <div>
-        <a href="<c:url value="/logout" />" class="nav-link text-success">
+        <a href="<c:url value="/logout" />" class="nav-link">
             Đăng xuất
         </a>
     </div>

@@ -5,14 +5,12 @@
  */
 package com.huyhung.service;
 
-import com.huyhung.pojo.Vehicle;
-import java.util.List;
+import com.huyhung.pojo.TripDetail;
 
 /**
  *
  * @author TIM
  */
-public interface VehicleService {
-    boolean createVehicle(Vehicle vehicle);
-    List<Vehicle> getListVehicle(String vehicleName);
+public interface TripDetailService {
+    boolean createTripDetail(TripDetail tripDetail);
 }

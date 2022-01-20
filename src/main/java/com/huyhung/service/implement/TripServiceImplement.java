@@ -6,7 +6,10 @@
 package com.huyhung.service.implement;
 
 import com.huyhung.pojo.Trip;
+import com.huyhung.repository.TripRepository;
 import com.huyhung.service.TripService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,10 +18,17 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class TripServiceImplement implements TripService{
+     @Autowired
+    private TripRepository tripRepository;
+    
+    @Override
+    public boolean createTrip(Trip trip) {        
+        return this.tripRepository.createTrip(trip);
+    }
 
     @Override
-    public boolean createTrip(Trip trip) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Trip> getListTrip() {
+        return this.tripRepository.getListTrip();
     }
     
 }

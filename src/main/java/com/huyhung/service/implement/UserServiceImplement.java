@@ -16,6 +16,7 @@ import com.huyhung.service.UserService;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
@@ -74,7 +75,7 @@ public class UserServiceImplement implements UserService {
     public boolean createUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        if (user.getFile() != null) {
+        if (user.getFile() != null && user.getFile().getSize() > 0) {
             try {
                 Map r = this.cloudinary.uploader().upload(user.getFile().getBytes(),
                         ObjectUtils.asMap("resource_type", "auto"));
@@ -85,6 +86,11 @@ public class UserServiceImplement implements UserService {
         }
 
         return this.userRepository.createUser(user);
+    }
+
+    @Override
+    public List<User> getListUser(String userName) {
+        return this.userRepository.getListUser(userName);
     }
 
 }

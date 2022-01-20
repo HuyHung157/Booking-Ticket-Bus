@@ -5,14 +5,8 @@
  */
 package com.huyhung.controllers;
 
-import com.cloudinary.Cloudinary;
-import com.cloudinary.utils.ObjectUtils;
 import com.huyhung.pojo.Location;
 import com.huyhung.service.LocationService;
-import java.io.IOException;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -34,11 +29,11 @@ public class LocationController {
 
     @Autowired
     private LocationService locationService;
-    @Autowired
-    private Cloudinary cloudinary;
 
     @RequestMapping("/admin/location")
-    public String index() {
+    public String index(Model model,
+            @RequestParam(value="kw", required = false) String locationName) {
+        model.addAttribute("locationList", this.locationService.getListLocation(locationName));
         return "location-list";
     }
 
@@ -61,7 +56,7 @@ public class LocationController {
             return "redirect:/admin/location";
         }
 
-        model.addAttribute("errMsg", "He thong da xay ra loi! Vui long quay lai sau!");
+        model.addAttribute("errMsg", "Hệ thống đã xảy ra lỗi! Vui lòng thử lại sau!");
         return "location-form";
     }
 }

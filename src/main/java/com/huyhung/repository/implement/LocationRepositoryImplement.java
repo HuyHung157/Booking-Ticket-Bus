@@ -7,6 +7,12 @@ package com.huyhung.repository.implement;
 
 import com.huyhung.pojo.Location;
 import com.huyhung.repository.LocationRepository;
+import java.util.List;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +38,28 @@ public class LocationRepositoryImplement implements LocationRepository {
             session.save(location);
             return true;
         } catch (HibernateException ex) {
+            session.clear();
             ex.printStackTrace();
         }
 
         return false;
+    }
+
+    @Override
+    public List<Location> getListLocation(String locationName) {
+       Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Location> query = builder.createQuery(Location.class);
+        Root root = query.from(Location.class);
+        query = query.select(root);
+        
+        if (locationName != null && !locationName.isEmpty()) {
+            Predicate p = builder.equal(root.get("locationName").as(String.class), locationName.trim());
+            query = query.where(p);
+        }
+        
+        Query q = session.createQuery(query);
+        return q.getResultList();
     }
 
 }

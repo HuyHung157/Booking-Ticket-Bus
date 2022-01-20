@@ -15,8 +15,9 @@
         <title> <tiles:insertAttribute name="title"/> - Nhà xe ABC </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="<c:url value='/css/sidebar.css'/>"  /></link>
-        <link rel="stylesheet" href="<c:url value='/css/common.css'/>"  /></link>
+        <link rel="stylesheet" href="<c:url value='/css/sidebar.css'/>" /></link>
+        <link rel="stylesheet" href="<c:url value='/css/common.css'/>" /></link>
+        <link rel="stylesheet" href="<c:url value='/css/table.css'/>" /></link>
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -41,7 +42,7 @@
                 <li>
                     <a href="<c:url value="/admin" />"> <i class="fa fa-home"></i> Home </a>
                 </li>                
-                <li> <a href="<c:url value="/admin/trip" />"> <i class="fa fa-bacon"></i> Chuyến đi </a> </li>
+                <li> <a href="<c:url value="/admin/trip-detail" />"> <i class="fa fa-bacon"></i> Chuyến đi </a> </li>
                 <li> <a href="<c:url value="/admin/order" />"> <i class="fa fa-clipboard-list"></i> Đơn hàng </a> </li>
                 <li>
                     <a href="#accountSubmenu" data-toggle="collapse" aria-expanded="false">
@@ -59,6 +60,7 @@
                         Cài đặt
                     </a>
                     <ul class="collapse list-unstyled" id="serviceSubmenu">
+                        <li> <a href="<c:url value="/admin/trip" />"> <i class="fa fa-bacon"></i> Hành trình </a> </li>
                         <li><a href="<c:url value="/admin/vehicle" />"><i class="fa fa-shuttle-van"></i>Phương tiện</a></li>
                         <li><a href="<c:url value="/admin/location" />"><i class="fa fa-map-marker-alt"></i>Địa điểm</a></li>
                     </ul>

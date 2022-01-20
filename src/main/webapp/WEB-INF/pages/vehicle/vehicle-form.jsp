@@ -55,7 +55,7 @@
             <form:errors path="totalSeatUpper" element="div" cssClass="text-danger" />
         </div>
         <div class="form-group w-50">
-            <label for="totalSeatLower">Số ghế tầng trên</label>
+            <label for="totalSeatLower">Số ghế tầng dưới</label>
             <form:input path="totalSeatLower" class="form-control" id="totalSeatLower" />
             <form:errors path="totalSeatLower" element="div" cssClass="text-danger" />
         </div>
@@ -71,6 +71,11 @@
             <label for="image">Hình ảnh</label>
             <form:input type="file" id="image" path="file" class="form-control" />
         </div>
+    </div>
+
+    <div class="form-group ">
+        <label for="status">Trạng thái</label>
+        <form:input id="status" path="status" class="form-control" />
     </div>
 
     <div class="form-group">

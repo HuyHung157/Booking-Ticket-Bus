@@ -5,14 +5,8 @@
  */
 package com.huyhung.controllers;
 
-import com.cloudinary.Cloudinary;
-import com.cloudinary.utils.ObjectUtils;
 import com.huyhung.pojo.User;
 import com.huyhung.service.UserService;
-import java.io.IOException;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -41,8 +36,10 @@ public class UserController {
     }
 
     @RequestMapping("/admin/user")
-    public String userList(Model model) {
+    public String userList(Model model,
+    @RequestParam(value="kw", required = false) String userName) {
         model.addAttribute("mode", "User");
+        model.addAttribute("userList", this.userDetailsService.getListUser(userName));
         return "user-list";
     }
 
@@ -67,13 +64,14 @@ public class UserController {
             if (this.userDetailsService.createUser(user)) {
                 return "redirect:/admin/user/";
             } else {
-                errMsg = "He thong dang co loi! Vui long quay lai sau!";
+                errMsg = "Hệ thống đã xảy ra lỗi! Vui lòng thử lại sau!";
             }
         } else {
-            errMsg = "Mat khau KHONG khop!";
+            errMsg = "Mật khẩu không khớp";
         }
 
         model.addAttribute("errMsg", errMsg);
+        model.addAttribute("roleList", this.userDetailsService.getRoleList());
 
         return "user-form";
     }
@@ -84,8 +82,10 @@ public class UserController {
     }
 
     @RequestMapping("/admin/employee")
-    public String employeeList(Model model) {
+    public String employeeList(Model model,
+    @RequestParam(value="kw", required = false) String userName) {
         model.addAttribute("mode", "Employee");
+        model.addAttribute("userList", this.userDetailsService.getListUser(userName));
         return "employee-list";
     }
 

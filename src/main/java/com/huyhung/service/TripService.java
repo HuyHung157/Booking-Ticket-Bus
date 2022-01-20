@@ -6,6 +6,7 @@
 package com.huyhung.service;
 
 import com.huyhung.pojo.Trip;
+import java.util.List;
 
 /**
  *
@@ -13,4 +14,5 @@ import com.huyhung.pojo.Trip;
  */
 public interface TripService {
     boolean createTrip(Trip trip);
+    List<Trip> getListTrip();
 }

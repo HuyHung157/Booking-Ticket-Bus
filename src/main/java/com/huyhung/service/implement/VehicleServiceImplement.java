@@ -11,6 +11,7 @@ import com.huyhung.pojo.Vehicle;
 import com.huyhung.repository.VehicleRepository;
 import com.huyhung.service.VehicleService;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,7 +32,7 @@ public class VehicleServiceImplement implements VehicleService {
 
     @Override
     public boolean createVehicle(Vehicle vehicle) {
-        if (vehicle.getFile() != null) {
+        if (vehicle.getFile() != null && vehicle.getFile().getSize() > 0) {
             try {
                 Map r = this.cloudinary.uploader().upload(vehicle.getFile().getBytes(),
                         ObjectUtils.asMap("resource_type", "auto"));
@@ -42,5 +43,10 @@ public class VehicleServiceImplement implements VehicleService {
         }
 
         return this.vehicleRepository.createVehicle(vehicle);
+    }
+
+    @Override
+    public List<Vehicle> getListVehicle(String vehicleName) {
+        return this.vehicleRepository.getListVehicle(vehicleName);
     }
 }

@@ -60,15 +60,25 @@ and open the template in the editor.
         <put-attribute name="title" value="Thông tin cá nhân"/>
         <put-attribute name="contentAdmin" value="/WEB-INF/pages/user/user-profile.jsp" />
     </definition>
-    <!-- Trip -->
+    <!-- Trip - Hành trình --> 
     <definition name="trip-list" extends="baseLayoutAdmin">
-        <put-attribute name="title" value="Danh sách chuyến đi" />
+        <put-attribute name="title" value="Danh sách hành trình" />
         <put-attribute name="contentAdmin" value="/WEB-INF/pages/trip/trip-list.jsp" />
     </definition>
     <definition name="trip-form" extends="baseLayoutAdmin">
-        <put-attribute name="title" value="Tạo chuyến đi"/>
+        <put-attribute name="title" value="Tạo hành trình"/>
         <put-attribute name="contentAdmin" value="/WEB-INF/pages/trip/trip-form.jsp" />
     </definition>
+    <!-- Trip Detail - Chuyến đi -->
+    <definition name="trip-detail-list" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Danh sách chuyến đi" />
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/trip-detail/trip-detail-list.jsp" />
+    </definition>
+    <definition name="trip-detail-form" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Tạo chuyến đi"/>
+        <put-attribute name="contentAdmin" value="/WEB-INF/pages/trip-detail/trip-detail-form.jsp" />
+    </definition>
+
     <!-- Order -->
     <definition name="order-list" extends="baseLayoutAdmin">
         <put-attribute name="title" value="Danh sách đơn hàng" />

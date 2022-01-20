@@ -5,9 +5,11 @@
  */
 package com.huyhung.configs;
 
+import com.huyhung.fomatters.LocationFormatter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
@@ -50,6 +52,11 @@ public class WebApplicationContextConfig implements WebMvcConfigurer {
     @Override
     public Validator getValidator() {
         return validator;
+    }
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addFormatter(new LocationFormatter());
     }
 
     @Bean

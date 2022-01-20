@@ -25,19 +25,19 @@
 
             <c:if test="${pageContext.request.userPrincipal.name == null}">
                 <li class="nav-item">
-                    <a href="<c:url value="/login" />" class="nav-link text-danger">
+                    <a href="<c:url value="/login" />" class="nav-link">
                         <i class="fa fa-user" aria-hidden="true"></i> Đăng nhập
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<c:url value="/register" />" class="nav-link text-danger">
+                    <a href="<c:url value="/register" />" class="nav-link">
                         <i class="fa fa-check" aria-hidden="true"></i> Đăng ký
                     </a>
                 </li>
             </c:if>
             <c:if test="${pageContext.request.userPrincipal.name != null}">
                 <li class="nav-item">
-                    <a href="<c:url value="/" />" class="nav-link text-success">
+                    <a href="<c:url value="/" />" class="nav-link">
                         <c:if test="${currentUser.imgUrl != null}">
                             <img style="width:30px;" src="${currentUser.imgUrl}" class="rounded-circle" />
                         </c:if>
@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<c:url value="/logout" />" class="nav-link text-success">
+                    <a href="<c:url value="/logout" />" class="nav-link">
                         Đăng xuất
                     </a>
                 </li>
@@ -60,7 +60,7 @@
 
     <c:url value="/" var="actionProduct" />
     <form class="form-inline" action="${actionProduct}">
-        <input class="form-control mr-sm-2" name="kw" type="text" placeholder="Nhap tu khoa">
+        <input class="form-control mr-sm-2" name="kw" type="text" placeholder="Nhập từ khóa">
         <button class="btn btn-success" type="submit">Tìm kiếm</button>
     </form>
 </nav>

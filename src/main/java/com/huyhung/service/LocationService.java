@@ -6,6 +6,7 @@
 package com.huyhung.service;
 
 import com.huyhung.pojo.Location;
+import java.util.List;
 
 /**
  *
@@ -13,4 +14,5 @@ import com.huyhung.pojo.Location;
  */
 public interface LocationService {
     boolean createLocation(Location location);
+    List<Location> getListLocation(String locationName);
 }

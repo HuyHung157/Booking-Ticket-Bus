@@ -5,6 +5,7 @@
  */
 package com.huyhung.repository;
 import com.huyhung.pojo.Vehicle;
+import java.util.List;
 
 /**
  *
@@ -12,4 +13,5 @@ import com.huyhung.pojo.Vehicle;
  */
 public interface VehicleRepository {
     boolean createVehicle(Vehicle vehicle);
+    List<Vehicle> getListVehicle(String vehicleName);
 }

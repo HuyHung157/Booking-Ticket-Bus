@@ -16,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -29,7 +30,9 @@ public class VehicleController {
     private VehicleService vehicleService;
 
     @RequestMapping("/admin/vehicle")
-    public String index() {
+    public String index(Model model,
+    @RequestParam(value="kw", required = false) String vehicleName) {
+        model.addAttribute("vehicleList", this.vehicleService.getListVehicle(vehicleName));
         return "vehicle-list";
     }
 
@@ -52,7 +55,7 @@ public class VehicleController {
             return "redirect:/admin/vehicle";
         }
 
-        model.addAttribute("errMsg", "He thong da xay ra loi! Vui long quay lai sau!");
+        model.addAttribute("errMsg", "Hệ thống đã xảy ra lỗi! Vui lòng thử lại sau!");
         return "vehicle-form";
     }
 }

@@ -5,14 +5,12 @@
  */
 package com.huyhung.repository;
 
-import com.huyhung.pojo.Location;
-import java.util.List;
+import com.huyhung.pojo.TripDetail;
 
 /**
  *
  * @author TIM
  */
-public interface LocationRepository {
-    boolean createLocation(Location location);
-    List<Location> getListLocation(String locationName);
+public interface TripDetailRepository {
+    boolean createTripDetail(TripDetail tripDetail);
 }

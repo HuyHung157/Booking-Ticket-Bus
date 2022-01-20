@@ -14,3 +14,45 @@
         Tạo mới
     </a>
 </div>
+
+<table  class="content-table">
+    <tr>
+        <th> STT </th>
+        <th> Tên xe </th>
+        <th> Hãng xe </th>
+        <th> Số ghế </th>
+        <th> Chức năng </th>
+    </tr>
+
+    <c:forEach items="${vehicleList}" var="item" varStatus="loop">
+
+        <tr>
+            <td> ${item.getVehicleNumber()} </td>
+            <td> ${item.getVehicleName()} </td>
+            <td> ${item.getVehicleBranch()} </td>
+            <td> ${item.getTotalSeat()} </td>
+            <td class="list-action">
+                <a data-toggle="tooltip" 
+                   title="Chỉnh sửa" class="text-primary" 
+                   href="">
+                    <i class="fa fa-pencil-alt"></i>
+                </a>
+
+                <a data-toggle="tooltip" 
+                   title="Chi tiết" 
+                   class="text-warning" 
+                   href="">
+                    <i class="fa fa-eye"></i>
+                </a>
+
+                <a data-toggle="tooltip" 
+                   title="Xóa" 
+                   class="text-danger" 
+                   href="">
+                    <i class="fa fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+    </c:forEach>
+
+</table>
