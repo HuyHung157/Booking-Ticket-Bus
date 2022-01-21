@@ -44,12 +44,12 @@
 
     <div class="form-row">
         <div class="form-group w-50">
-            <label for="name">Họ</label>
+            <label for="name">Tên</label>
             <form:input path="firstName" class="form-control" id="firstName" />
             <form:errors path="firstName" element="div" cssClass="text-danger" />
         </div>
         <div class="form-group w-50">
-            <label for="name">Tên</label>
+            <label for="name">Họ</label>
             <form:input path="lastName" class="form-control" id="lastName" />
             <form:errors path="lastName" element="div" cssClass="text-danger" />
         </div>

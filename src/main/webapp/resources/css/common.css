@@ -10,3 +10,7 @@ and open the template in the editor.
 .m-0auto{
     margin: 0 auto;
 }
+.login-page, .register-page{
+    max-width: 50%;
+    margin: 0 auto;
+}

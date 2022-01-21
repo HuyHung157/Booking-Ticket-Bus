@@ -7,6 +7,7 @@ package com.huyhung.controllers;
 
 import com.huyhung.pojo.User;
 import com.huyhung.service.UserService;
+import javax.swing.JOptionPane;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,9 +36,39 @@ public class UserController {
         return "login";
     }
 
+    @GetMapping("/register")
+    public String registerForm(Model model) {
+        model.addAttribute("mode", "User");
+        model.addAttribute("user", new User());
+        return "register";
+    }
+
+    @PostMapping("/register")
+    public String register(Model model,
+            @ModelAttribute("user") @Valid User user,
+            BindingResult result) {
+        String errMsg = "";
+        if (result.hasErrors()) {
+            return "register";
+        }
+
+        if (user.getPassword().equals(user.getConfirmPassword())) {
+            if (this.userDetailsService.createUser(user)) {
+                return "redirect:/login";
+            } else {
+                errMsg = "Hệ thống đã xảy ra lỗi! Vui lòng thử lại sau!";
+            }
+        } else {
+            errMsg = "Mật khẩu không khớp";
+        }
+
+        model.addAttribute("errMsg", errMsg);
+        return "register";
+    }
+
     @RequestMapping("/admin/user")
     public String userList(Model model,
-    @RequestParam(value="kw", required = false) String userName) {
+            @RequestParam(value = "kw", required = false) String userName) {
         model.addAttribute("mode", "User");
         model.addAttribute("userList", this.userDetailsService.getListUser(userName));
         return "user-list";
@@ -83,7 +114,7 @@ public class UserController {
 
     @RequestMapping("/admin/employee")
     public String employeeList(Model model,
-    @RequestParam(value="kw", required = false) String userName) {
+            @RequestParam(value = "kw", required = false) String userName) {
         model.addAttribute("mode", "Employee");
         model.addAttribute("userList", this.userDetailsService.getListUser(userName));
         return "employee-list";

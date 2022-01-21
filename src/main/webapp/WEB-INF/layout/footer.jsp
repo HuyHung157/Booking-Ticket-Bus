@@ -5,9 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<footer>
-    <div class=""jumbotron>
-        <h1> Bến xe ABC </h1>
-        <p> &copy Copyright Nhà xe ABC </p>
-    </div>
+<footer class="text-center">
+    <h1> Bến xe ABC </h1>
+    <p class="copyright text-center">&copy Copyright - Trần Huy Hùng</p>
 </footer>
